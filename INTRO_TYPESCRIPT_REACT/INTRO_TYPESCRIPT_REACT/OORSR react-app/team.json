@@ -1,0 +1,134 @@
+{
+  "teams": [
+    {
+      "id": "1",
+      "name": "Liverpool",
+      "players": [
+        {
+          "id": 1,
+          "name": "Salah",
+          "Position": "Striker",
+          "Age": 30,
+          "Isinjured": false
+        },
+        {
+          "id": 6,
+          "name": "Nunez",
+          "position": "Striker",
+          "age": 24,
+          "isInjured": true,
+          "teamid": 1
+        },
+        {
+          "id": 11,
+          "name": "Cody",
+          "position": "winger",
+          "age": 21,
+          "isInjured": false,
+          "teamid": "1"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Manchester City",
+      "players": [
+        {
+          "id": 2,
+          "name": "Erling",
+          "Position": "Striker",
+          "Age": 30,
+          "Isinjured": false
+        },
+        {
+          "id": 10,
+          "name": "Boku",
+          "position": "winger",
+          "age": 21,
+          "isInjured": false,
+          "teamid": "2"
+        }
+      ]
+    },
+    {
+      "name": "Chelsea",
+      "id": "3",
+      "players": [
+        {
+          "id": 11,
+          "name": "Palmer",
+          "position": "winger",
+          "age": 22,
+          "isInjured": false,
+          "teamid": "3"
+        }
+      ]
+    }
+  ],
+  "players": [
+    {
+      "id": "1",
+      "name": "Salah",
+      "teamId": 1,
+      "Position": "Striker",
+      "Age": 30,
+      "Isinjured": false
+    },
+    {
+      "id": "2",
+      "name": "Erling",
+      "teamId": 2,
+      "Position": "Striker",
+      "Age": 30,
+      "Isinjured": false
+    },
+    {
+      "id": "4",
+      "name": "cody",
+      "position": "winger",
+      "age": 22,
+      "isInjured": false,
+      "teamid": 1
+    },
+    {
+      "id": "6",
+      "name": "Nunez",
+      "position": "Striker",
+      "age": 24,
+      "isInjured": false,
+      "teamid": 1
+    },
+    {
+      "id": "10",
+      "name": "Ivana",
+      "position": "winger",
+      "age": 22,
+      "isInjured": false,
+      "teamid": "5"
+    },
+    {
+      "id": "10",
+      "name": "Boku",
+      "position": "winger",
+      "age": 21,
+      "isInjured": false,
+      "teamid": "2"
+    },
+    {
+      "id": 11,
+      "name": "Vinicius",
+      "position": "striker",
+      "age": 22,
+      "isInjured": false,
+      "teamid": "4"
+    },
+    {
+      "id": 11,
+      "name": "kyhlia",
+      "position": "shfds",
+      "age": 44,
+      "isInjured": false,
+      "teamid": "4"
+    }
+  ]
+}

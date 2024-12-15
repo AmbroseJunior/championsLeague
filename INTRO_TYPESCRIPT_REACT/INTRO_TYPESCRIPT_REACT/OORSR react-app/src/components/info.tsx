@@ -1,7 +1,7 @@
 import React from 'react'
 import Player from './player'
 
-export const Warning: React.FC = () => {
+export const info: React.FC = () => {
     if (Player.length >= 11) 
         return (
         <div style={{ border: '1px solid green', padding: '0.5rem', borderRadius: '5px', width: '200px', background: 'red', color: 'white' }}>
@@ -11,4 +11,4 @@ export const Warning: React.FC = () => {
     )
 }  
 
-export default Warning
+export default info

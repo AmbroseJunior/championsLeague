@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,39 +7,80 @@ interface Team {
   name: string;
 }
 
+interface Player {
+  id: number;
+  name: string;
+  position: string;
+  age: number;
+  isInjured: boolean;
+  teamid: string;
+
+}
+
 const TeamList: React.FC = () => {
   const [teams, setTeams] = useState<Team[]>([]);
   const [editingTeamId, setEditingTeamId] = useState<number | null>(null);
   const [editedName, setEditedName] = useState('');
 
+  // Fetch teams from json-server
+  useEffect(() => {
+    const fetchTeams = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/teams');
+        const fetchedTeams = response.data;
+
+        // Synchronize with localStorage
+        const storedTeams = localStorage.getItem('teams');
+        if (!storedTeams) {
+          localStorage.setItem('teams', JSON.stringify(fetchedTeams));
+        }
+
+        // Set state with either fetched or localStorage data
+        setTeams(fetchedTeams);
+      } catch (error) {
+        console.error('Error fetching teams:', error);
+        alert('Failed to fetch teams. Please try again.');
+      }
+    };
+
+    fetchTeams();
+  }, []);
+
+
   // Handle editing the team name
   const handleEditTeamName = (teamId: number, newName: string) => {
-    const updatedTeams = teams.map(team => {
-      if (team.id === teamId) {
-        return { ...team, name: newName };
-      }
-      return team;
-    });
+    const updatedTeams = teams.map((team) =>
+      team.id === teamId ? { ...team, name: newName } : team
+    );
     setTeams(updatedTeams);
     localStorage.setItem('teams', JSON.stringify(updatedTeams));
     setEditingTeamId(null); // Exit edit mode
   };
 
   // Handle deleting a team
-  const handleDeleteTeam = (teamId: number) => {
-    if (window.confirm('Are you sure you want to delete this team?')) {
-      const updatedTeams = teams.filter(team => team.id !== teamId);
+  const handleDeleteTeam = async (teamId: string | number) => {
+    try {
+      // DELETE the team from the /teams endpoint
+      await axios.delete(`http://localhost:3000/teams/${teamId}`);
+  
+      // DELETE all players associated with this team from /players
+      const response = await axios.get('http://localhost:3000/players');
+      const playersToDelete = response.data.filter((player: Player) => player.teamid === String(teamId));
+  
+      for (const player of playersToDelete) {
+        await axios.delete(`http://localhost:3000/players/${player.id}`);
+      }
+  
+      // Update state and localStorage
+      const updatedTeams = teams.filter((team: Team) => team.id !== Number(teamId));
       setTeams(updatedTeams);
       localStorage.setItem('teams', JSON.stringify(updatedTeams));
+    } catch (error) {
+      console.error('Error deleting team:', error);
     }
   };
-
-  useEffect(() => {
-    const storedTeams = localStorage.getItem('teams');
-    if (storedTeams) {
-      setTeams(JSON.parse(storedTeams));
-    }
-  }, []);
+  
+  
 
   return (
     <div className="container mt-5">
