@@ -9,7 +9,8 @@
           "name": "Salah",
           "Position": "Striker",
           "Age": 30,
-          "Isinjured": false
+          "Isinjured": false,
+          "age": 33
         },
         {
           "id": 6,
@@ -63,6 +64,28 @@
           "teamid": "3"
         }
       ]
+    },
+    {
+      "id": "4",
+      "name": "Real Madrid",
+      "players": [
+        {
+          "id": 6,
+          "name": "Bellingham",
+          "position": "Winger",
+          "age": 20,
+          "isInjured": false,
+          "teamid": "4"
+        },
+        {
+          "id": 7,
+          "name": "Mbappe",
+          "position": "Foward",
+          "age": 20,
+          "isInjured": false,
+          "teamid": "4"
+        }
+      ]
     }
   ],
   "players": [
@@ -100,14 +123,6 @@
     },
     {
       "id": "10",
-      "name": "Ivana",
-      "position": "winger",
-      "age": 22,
-      "isInjured": false,
-      "teamid": "5"
-    },
-    {
-      "id": "10",
       "name": "Boku",
       "position": "winger",
       "age": 21,
@@ -115,18 +130,18 @@
       "teamid": "2"
     },
     {
-      "id": 11,
-      "name": "Vinicius",
-      "position": "striker",
-      "age": 22,
+      "id": 6,
+      "name": "Bellingham",
+      "position": "Winger",
+      "age": 20,
       "isInjured": false,
       "teamid": "4"
     },
     {
-      "id": 11,
-      "name": "kyhlia",
-      "position": "shfds",
-      "age": 44,
+      "id": 7,
+      "name": "Mpappe",
+      "position": "Foward",
+      "age": 20,
       "isInjured": false,
       "teamid": "4"
     }

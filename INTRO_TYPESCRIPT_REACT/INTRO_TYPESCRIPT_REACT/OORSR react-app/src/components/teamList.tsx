@@ -54,7 +54,7 @@ const TeamList: React.FC = () => {
     );
     setTeams(updatedTeams);
     localStorage.setItem('teams', JSON.stringify(updatedTeams));
-    setEditingTeamId(null); // Exit edit mode
+    setEditingTeamId(null); 
   };
 
   // Handle deleting a team

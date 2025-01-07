@@ -64,7 +64,6 @@ const AddTeam: React.FC = () => {
     <div className="mt-2">
       <button className="btn btn-secondary" onClick={handleCancel}>Cancel</button>
     </div>
-  );  
   </>
   );
 };

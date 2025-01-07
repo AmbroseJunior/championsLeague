@@ -5,27 +5,43 @@ class team {
     yearOfEstablishment: number;
     director: functionar;
     trainer: functionar;
-    players: player[];
+    players: Array<any>;
 
     constructor(name: string, yearOfEstablishment: number, director: functionar, trainer: functionar, players: player[]) {
         this.name = name;
         this.yearOfEstablishment = yearOfEstablishment;
         this.director = director;
         this.trainer = trainer;
-        this.players = players;
+        this.players = [];
     }
 
-    addplayer(player: player) {
-        this.players.push(player);
+    //add new player to the team
+    //check if existing player id is not the same as the new player id
+    addplayer(player: any) {
+        const existingPlayer = this.players.find(p => p.id === player.id);
+        if (!existingPlayer) {
+            this.players.push(player);
+            console.log("Player added successfully!");
+        } else {
+            console.log("Player already exists!");
+        }
     }
 
-    updateplayer(player: player) {
+    //update player data parameter(payer data)
+    updatePlayer(playerId: number, playerDetails: any) {
         for (let p of this.players) {
-            if (p.id === player.id) {
-                this.players.push(player);
-                break;
+            if (p.id === playerId) {
+                p.name = playerDetails.name;
+                p.surname = playerDetails.surname;
+                p.dateOfBirth = playerDetails.dateOfBirth;
+                p.placeOfBirth = playerDetails.placeOfBirth;
+                p.height = playerDetails.height;
+                p.weight = playerDetails.weight;
+                return;
             }
-        } 
+            console.log("Player updated successfully!");
+        }
+        console.log("Player not found!");
     }
 
     deleteplayer(id: number) {
@@ -34,6 +50,7 @@ class team {
                 this.players.splice(this.players.indexOf(p), 1);
                 break;
             }
+            console.log("Player deleted successfully!");
         }
     }
 
@@ -42,7 +59,7 @@ class team {
        Founded: ${this.yearOfEstablishment}, 
        Director: 
        Name:${this.director.name}, 
-       Surname: ${this.director.surnmame}, 
+       Surname: ${this.director.surname}, 
        DateofBirth: ${this.director.dateOfBirth}, 
        PlaceofBirth: ${this.director.placeOfBirth}, 
        ID: ${this.director.id}, 
@@ -51,7 +68,7 @@ class team {
        
        Trainer:
        Name: ${this.trainer.name} 
-       Surname: ${this.trainer.surnmame},
+       Surname: ${this.trainer.surname},
        DateofBirth: ${this.trainer.dateOfBirth}, 
        PlaceofBirth: ${this.trainer.placeOfBirth}, 
        ID: ${this.trainer.id}, 

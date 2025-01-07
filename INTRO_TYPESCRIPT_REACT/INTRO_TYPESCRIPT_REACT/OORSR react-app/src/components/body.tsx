@@ -23,7 +23,7 @@ const Body: React.FC = () => {
   const [players, setPlayers] = useState<Player[]>([]);
   const [playerCount, setPlayerCount] = useState(0);
   const [teamName, setTeamName] = useState('');
-  const { teamID } = useParams(); // Get the team ID from the route
+  const { teamID } = useParams(); 
   const [editingPlayer, setEditingPlayer] = useState<Player | null>(null);
 
   // Fetch the team and player data when the component loads
@@ -103,9 +103,6 @@ const Body: React.FC = () => {
       console.error('Error adding player:', error);
     }
   };
-  
-  
-  
   
   const handleEdit = (player: Player) => {
     setEditingPlayer(player);

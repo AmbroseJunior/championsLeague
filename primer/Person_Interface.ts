@@ -1,7 +1,7 @@
 // Person_Interface.ts
 export interface person {
     name: string;
-    surnmame: string;
+    surname: string;
     dateOfBirth: number;
     placeOfBirth: string;
     id: number;
